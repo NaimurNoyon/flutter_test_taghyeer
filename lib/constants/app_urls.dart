@@ -1,8 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AppUrls {
-  static final String baseUrl =
-      dotenv.env['BASE_URL'] ?? "https://dummyjson.com";
+  static final String baseUrl = dotenv.env['BASE_URL'] ?? "";
 
   static String login() => "$baseUrl/auth/login";
   static String posts({int limit = 10, int skip = 0}) =>

@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> checkUser() async {
     await controller.loadUser();
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
 
     if (controller.user != null) {
       Get.offAllNamed(AppRoutes.mainScreen);
@@ -38,6 +38,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text("Dummy Splash Screen", style: TextStyle(fontSize: 16)),
+            SizedBox(height: 36),
             CircularProgressIndicator(),
             SizedBox(height: 16),
             Text("Please wait...", style: TextStyle(fontSize: 16)),
