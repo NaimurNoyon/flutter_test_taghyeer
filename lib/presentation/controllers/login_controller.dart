@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../core/routes/app_routes.dart';
 import '../../domain/entities/user.dart';
 import '../../domain/usecases/login_usecase.dart';
 
 class LoginController extends GetxController {
-  final LoginUser loginUserUseCase;
+  final LoginUser loginUser;
 
-  LoginController(this.loginUserUseCase);
+  LoginController(this.loginUser);
 
   // TextControllers
   final emailController = TextEditingController();
@@ -45,7 +44,7 @@ class LoginController extends GetxController {
       isLoading = true;
       update();
 
-      User user = await loginUserUseCase(
+      User user = await loginUser(
         username: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
