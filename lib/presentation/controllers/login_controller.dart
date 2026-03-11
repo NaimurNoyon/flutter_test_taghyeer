@@ -55,7 +55,7 @@ class LoginController extends GetxController {
       Get.snackbar(
         "Success",
         "Welcome ${user.firstName}",
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
       );
 
       // Navigate to Product Screen or Home
