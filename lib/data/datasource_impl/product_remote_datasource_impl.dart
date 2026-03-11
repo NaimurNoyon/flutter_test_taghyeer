@@ -1,3 +1,4 @@
+import '../../constants/app_urls.dart';
 import '../../core/services/network_caller.dart';
 import '../datasource/product_remote_datasource.dart';
 import '../models/product_model.dart';
@@ -10,7 +11,7 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<List<ProductModel>> getProducts({int skip = 0, int limit = 10}) async {
     final response = await networkCaller.getRequest(
-      "https://dummyjson.com/products?limit=$limit&skip=$skip",
+      AppUrls.products(limit: limit, skip: skip),
     );
 
     if (response.success) {

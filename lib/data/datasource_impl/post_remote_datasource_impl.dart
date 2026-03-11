@@ -1,3 +1,4 @@
+import '../../constants/app_urls.dart';
 import '../../core/services/network_caller.dart';
 import '../datasource/post_remote_datasource.dart';
 import '../models/post_model.dart';
@@ -10,7 +11,7 @@ class PostRemoteDataSourceImpl implements PostRemoteDataSource {
   @override
   Future<List<PostModel>> getPosts({int limit = 10, int skip = 0}) async {
     final response = await networkCaller.getRequest(
-      "https://dummyjson.com/posts?limit=$limit&skip=$skip",
+      AppUrls.posts(limit: limit, skip: skip),
     );
 
     if (response.success) {
