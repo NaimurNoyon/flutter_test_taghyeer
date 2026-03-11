@@ -5,8 +5,6 @@ import 'package:http/http.dart' as http;
 import '../api_response.dart';
 
 class NetworkCaller {
-  static const String baseUrl = "https://dummyjson.com";
-
   /// GET REQUEST
   Future<ApiResponse<dynamic>> getRequest(String url) async {
     try {

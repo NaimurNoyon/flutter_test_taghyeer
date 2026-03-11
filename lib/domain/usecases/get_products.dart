@@ -6,7 +6,7 @@ class GetProducts {
 
   GetProducts(this.repository);
 
-  Future<List<Product>> call() async {
-    return await repository.getProducts();
+  Future<List<Product>> call({int skip = 0, int limit = 10}) async {
+    return await repository.getProducts(skip: skip, limit: limit);
   }
 }

@@ -8,9 +8,7 @@ class ProductRepositoryImpl implements ProductRepository {
   ProductRepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<List<Product>> getProducts() async {
-    final models = await remoteDataSource.getProducts();
-
-    return models;
+  Future<List<Product>> getProducts({int skip = 0, int limit = 10}) async {
+    return await remoteDataSource.getProducts(skip: skip, limit: limit);
   }
 }
