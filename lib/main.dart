@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/bindings/initial_binding.dart';
+import 'core/routes/app_routes.dart';
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 import 'core/theme/theme_controller.dart';
-import 'presentation/screens/product_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.light,
-      home: ProductScreen(),
+      initialRoute: AppRoutes.splash,
+      getPages: AppRoutes.routes,
     );
   }
 }

@@ -24,6 +24,7 @@ class ThemeController extends GetxController {
     isDarkMode = !isDarkMode;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool(key, isDarkMode);
+    update();
 
     // Update app theme instantly
     Get.changeThemeMode(isDarkMode ? ThemeMode.dark : ThemeMode.light);
