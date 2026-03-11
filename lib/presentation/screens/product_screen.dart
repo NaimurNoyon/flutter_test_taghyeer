@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/routes/app_routes.dart';
 import '../controllers/product_controller.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -57,14 +58,26 @@ class ProductScreen extends StatelessWidget {
               if (index < controller.products.length) {
                 final product = controller.products[index];
                 return ListTile(
-                  leading: Image.network(
-                    product.thumbnail,
-                    width: 50,
-                    height: 50,
+                  onTap: () {
+                    Get.toNamed(
+                      AppRoutes.productDetailsScreen,
+                      arguments: product,
+                    );
+                  },
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: Image.network(
+                      product.thumbnail ?? "",
+                      width: 50,
+                      height: 50,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(Icons.image_not_supported);
+                      },
+                    ),
                   ),
 
-                  title: Text(product.title),
-                  subtitle: Text("\$${product.price}"),
+                  title: Text(product.title ?? "No Title"),
+                  subtitle: Text("\$${product.price ?? 0}"),
                 );
               } else {
                 return const Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'post_screen.dart';
+import 'post/post_screen.dart';
 import 'product_screen.dart';
 import 'settings_screen.dart';
 
